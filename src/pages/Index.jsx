@@ -3,7 +3,6 @@ import { FaGoogle, FaEnvelope } from "react-icons/fa";
 import { signInWithPopup, signInWithEmailAndPassword } from "firebase/auth";
 import { auth, googleProvider } from "../firebaseConfig";
 import { useState } from "react";
-import { FaGoogle, FaEnvelope } from "react-icons/fa";
 
 const Index = () => {
   const [email, setEmail] = useState("");
