@@ -1,7 +1,6 @@
 import { Container, Text, VStack, Heading, Button, Input } from "@chakra-ui/react";
 import { FaGoogle, FaEnvelope } from "react-icons/fa";
-import { signInWithPopup, signInWithEmailAndPassword } from "firebase/auth";
-import { auth, googleProvider } from "../firebaseConfig";
+import { signIn } from "next-auth/react";
 import { useState } from "react";
 
 const Index = () => {
@@ -10,7 +9,7 @@ const Index = () => {
 
   const handleGoogleSignIn = async () => {
     try {
-      await signInWithPopup(auth, googleProvider);
+      await signIn("google");
       // Redirect or show success message
     } catch (error) {
       console.error("Google sign-in error:", error);
@@ -19,7 +18,7 @@ const Index = () => {
 
   const handleEmailSignIn = async () => {
     try {
-      await signInWithEmailAndPassword(auth, email, password);
+      await signIn("email", { email, password });
       // Redirect or show success message
     } catch (error) {
       console.error("Email sign-in error:", error);
