@@ -2,7 +2,7 @@ import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import Index from "./pages/Index.jsx";
 import { SessionProvider } from "next-auth/react";
 
-function App() {
+function App({ pageProps }) {
   return (
     <SessionProvider session={pageProps.session}>
       <Router>
